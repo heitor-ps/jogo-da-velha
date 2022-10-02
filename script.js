@@ -9,8 +9,13 @@ const combinacoes =[
   [2,4,6] // diagonal direita esquerda
 ]
 
+
+
+jogadasDoX = [0, 1, 4, 2, 3]
+
+
 let grid = document.querySelector('.grid');
-let currentPlayer = 'O';
+let currentPlayer = '';
 
 
 
@@ -25,17 +30,19 @@ function divGenerator() {
 }
 
 function Jogar(event) {
+  event.preventDefault;
   let alvo = event.target;
-
   let player = document.querySelector('#player');
 
-  if (currentPlayer === 'X' || currentPlayer == '') {
+  if (currentPlayer === 'O' || currentPlayer == '') {
     player.innerText = 'Vez do jogador O';
-    currentPlayer = 'O'
+    currentPlayer = 'X'
+    console.log(currentPlayer)
   } else {
     player.innerText = 'Vez do jogador X'
-    currentPlayer = 'X'
-  }
+    currentPlayer = 'O'
+    console.log(currentPlayer)
+  }  
   alvo.innerText = currentPlayer;
 }
 
@@ -49,7 +56,16 @@ function reset() {
 
 function checkWinCondition() {
 
+  // for (let index = 0; index < grid.length; index += 1) {
+  //   for (let value = 0; value < combinacoes.length; value += 1) {
+  //     if (grid[index])
+  //   }
+  // }
+  
 }
+
+
+console.log(grid.children)
 
 
 
