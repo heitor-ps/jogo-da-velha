@@ -37,7 +37,9 @@ function Jogar(divEvent) {
   let alvo = divEvent.target;
   let player = document.querySelector('#player');
 
-  if (alvo.innerText === ''){
+  if (alvo.innerText !== ''){
+    alert('illegal move')
+  } else {
     if (changePlayer === 'O' || changePlayer == '') {
       changePlayer = 'X'
       player.innerText = 'Vez do jogador O';
@@ -47,10 +49,8 @@ function Jogar(divEvent) {
       player.innerText = 'Vez do jogador X'
       console.log(changePlayer)
     }
-  } else {
-    alert('illegal move')
+    alvo.innerText = changePlayer;
   }
-  alvo.innerText = changePlayer;
 }
 
 function resetGame() {
