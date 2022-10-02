@@ -9,4 +9,25 @@ const combinacoes =[
   [2,4,6] // diagonal direita esquerda
 ]
 
+let grid = document.querySelector('.grid');
+
+function divGenerator() {
+  for (let index = 0; index < 9; index += 1) {
+    let div = document.createElement('div');
+    div.addEventListener('click', Jogar)
+    div.innerText = 'x'
+    div.className = 'celula'
+    div.id = index;
+    grid.appendChild(div)   
+  }
+}
+
+function Jogar() {
+
+}
+
+console.log(grid)
+
+divGenerator()
+
 
