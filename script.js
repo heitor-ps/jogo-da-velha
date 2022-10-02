@@ -10,13 +10,14 @@ const combinacoes =[
 ]
 
 let grid = document.querySelector('.grid');
-let currentPlayer = '';
+let currentPlayer = 'O';
+
+
 
 function divGenerator() {
   for (let index = 0; index < 9; index += 1) {
     let div = document.createElement('div');
-    div.addEventListener('click', Jogar)
-    div.innerText = 'x'
+    div.addEventListener('click', Jogar)    
     div.className = 'celula'
     div.id = index;
     grid.appendChild(div)   
@@ -35,7 +36,20 @@ function Jogar(event) {
     player.innerText = 'Vez do jogador X'
     currentPlayer = 'X'
   }
-} 
+  alvo.innerText = currentPlayer;
+}
+
+let resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', reset)
+
+function reset() {
+  window.location.reload();
+}
+
+
+function checkWinCondition() {
+
+}
 
 
 
