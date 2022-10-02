@@ -9,66 +9,54 @@ const combinacoes =[
   [2,4,6] // diagonal direita esquerda
 ]
 
-
-
-jogadasDoX = [0, 1, 4, 2, 3]
-
-
+// global variables
 let grid = document.querySelector('.grid');
-let currentPlayer = '';
+let resetButton = document.querySelector('#reset');
+let changePlayer = '';
 
+// global events
+resetButton.addEventListener('click', resetGame);
+grid.addEventListener('click', checkWinCondition)
 
+// calling functions
+divGenerator();
 
+// methods declaration
 function divGenerator() {
   for (let index = 0; index < 9; index += 1) {
     let div = document.createElement('div');
-    div.addEventListener('click', Jogar)    
+    div.addEventListener('click', Jogar)
     div.className = 'celula'
     div.id = index;
-    grid.appendChild(div)   
+    grid.appendChild(div)
   }
 }
 
-function Jogar(event) {
-  event.preventDefault;
-  let alvo = event.target;
+function Jogar(divEvent) {
+  divEvent.preventDefault;
+  let alvo = divEvent.target;
   let player = document.querySelector('#player');
 
-  if (currentPlayer === 'O' || currentPlayer == '') {
-    player.innerText = 'Vez do jogador O';
-    currentPlayer = 'X'
-    console.log(currentPlayer)
+  if (alvo.innerText === ''){
+    if (changePlayer === 'O' || changePlayer == '') {
+      changePlayer = 'X'
+      player.innerText = 'Vez do jogador O';
+      console.log(changePlayer)
+    } else {
+      changePlayer = 'O'
+      player.innerText = 'Vez do jogador X'
+      console.log(changePlayer)
+    }
   } else {
-    player.innerText = 'Vez do jogador X'
-    currentPlayer = 'O'
-    console.log(currentPlayer)
-  }  
-  alvo.innerText = currentPlayer;
+    alert('illegal move')
+  }
+  alvo.innerText = changePlayer;
 }
 
-let resetButton = document.querySelector('#reset');
-resetButton.addEventListener('click', reset)
-
-function reset() {
+function resetGame() {
   window.location.reload();
 }
 
+function checkWinCondition(event) {
 
-function checkWinCondition() {
-
-  // for (let index = 0; index < grid.length; index += 1) {
-  //   for (let value = 0; value < combinacoes.length; value += 1) {
-  //     if (grid[index])
-  //   }
-  // }
-  
 }
-
-
-console.log(grid.children)
-
-
-
-divGenerator()
-
-
