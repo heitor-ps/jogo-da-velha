@@ -10,6 +10,7 @@ const combinacoes =[
 ]
 
 let grid = document.querySelector('.grid');
+let currentPlayer = '';
 
 function divGenerator() {
   for (let index = 0; index < 9; index += 1) {
@@ -22,11 +23,21 @@ function divGenerator() {
   }
 }
 
-function Jogar() {
+function Jogar(event) {
+  let alvo = event.target;
 
-}
+  let player = document.querySelector('#player');
 
-console.log(grid)
+  if (currentPlayer === 'X' || currentPlayer == '') {
+    player.innerText = 'Vez do jogador O';
+    currentPlayer = 'O'
+  } else {
+    player.innerText = 'Vez do jogador X'
+    currentPlayer = 'X'
+  }
+} 
+
+
 
 divGenerator()
 
